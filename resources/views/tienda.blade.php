@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Página Tienda
+    Tienda
 @endsection
 
 @section('contenido')
