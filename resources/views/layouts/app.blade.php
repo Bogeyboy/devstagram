@@ -4,9 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Devstagram - @yield('titulo')</title>
-        @vite('/resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
+        @vite('resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
     </head>
     <body>
-        <h1 class="text-4xl font-extrabold ">@yield('titulo')</h1>
+        <h1 class="text-4xl font-extrabold">@yield('titulo')</h1>
+        
+        <hr>
+        
+        @yield('contenido')
     </body>
 </html>
