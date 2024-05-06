@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Devstagram - @yield('titulo')</title>
+        @vite('/resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
     </head>
     <body>
 
