@@ -7,6 +7,6 @@
         @vite('/resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
     </head>
     <body>
-
+        <h1 class="text-4xl font-extrabold ">@yield('titulo')</h1>
     </body>
 </html>
