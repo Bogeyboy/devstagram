@@ -7,7 +7,9 @@
         @vite('resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
         @vite('resources/js/app.js'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO JS A COMPILAR --}}
     </head>
-    <body class="bg-red-300">
+    <body class="bg-gray-200">
         @include('layouts.header')
+        @include('layouts.main')
+        @include('layouts.footer')
     </body>
 </html>
