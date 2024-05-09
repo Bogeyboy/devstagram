@@ -22,14 +22,14 @@ class RegisterController extends Controller
         //VALIDACION
         $request->validate([
             'name' => 'required|max:30',
-            'username' => 'required|unique:users|min:3|max:20',
+            'username' => 'required|unique:users|min:3',
             'email' => 'required|unique:users|email|max:80',
             'password' => 'required|confirmed|min:6'
         ]);
 
         User::create([
             'name' => $request->name,
-            'username' => Str::lower($request->username), 
+            'username' => Str::slug($request->username), //CON SLUG CONVIERTE LOS ESPACIOS EN URL
             'email' => $request->email,
             /* 'password' => $request->password, */
             'password' => Hash::make($request->password),
