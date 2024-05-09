@@ -30,7 +30,8 @@ class RegisterController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => $request->password,
-
         ]);
+        //REDIRECCIONAMOS AL USUARIO
+        
     }
 }
