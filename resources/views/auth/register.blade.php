@@ -46,7 +46,9 @@
                         id="username"
                         name="username"
                         type="text"
-                        placeholder="Aquí tu username">
+                        placeholder="Aquí tu username"
+                        value="{{ old('username') }}"
+                        >
                     @error('username'){{-- Validación del nombre de usuario con mensaje --}}
                         <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}
@@ -66,7 +68,9 @@
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="Aquí tu email">
+                        placeholder="Aquí tu email"
+                        value="{{ old('email') }}"
+                        >
                     @error('email'){{-- Validación del email con mensaje --}}
                         <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}
