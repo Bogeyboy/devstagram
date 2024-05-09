@@ -16,8 +16,8 @@ class RegisterController extends Controller
     }
     public function store(Request $request)
     {
-        //dd($request);
-        //dd($request->get('username'));
+        //MODIFICAMOS EL REQUEST PARA QUE FUNCIONE LA VALIDACIÓN DE LARAVEL
+        $request->request->add(['username'=> Str::slug($request->username)]);//CON SLUG CONVIERTE LOS ESPACIOS EN URL
 
         //VALIDACION
         $request->validate([
@@ -29,7 +29,8 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $request->name,
-            'username' => Str::slug($request->username), //CON SLUG CONVIERTE LOS ESPACIOS EN URL
+            //'username' => Str::slug($request->username),
+            'username' => $request->username, //SE DEJA DE ESTA MANERA POR QUE LA VALIDACIÓN SE HACE ARRIBA
             'email' => $request->email,
             /* 'password' => $request->password, */
             'password' => Hash::make($request->password),
