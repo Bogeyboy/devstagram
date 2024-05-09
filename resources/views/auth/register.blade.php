@@ -22,12 +22,13 @@
                         name="name"
                         type="text"
                         placeholder="Aquí tu nombre">
+                    @error('name'){{-- Validación del nombre --}}
+                        <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
-                @error('name')
-                    <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
-                        {{ $message }}
-                    </p>
-                @enderror
+                
                 <div mb-5>{{-- Nombre de usuario --}}
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
                         Username:
@@ -39,6 +40,7 @@
                         type="text"
                         placeholder="Aquí tu username">
                 </div>
+
                 <div mb-5>{{-- Email --}}
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
                         Email:
@@ -50,6 +52,7 @@
                         type="email"
                         placeholder="Aquí tu email">
                 </div>
+
                 <div mb-5>{{-- Password --}}
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
                         Password:
@@ -61,6 +64,7 @@
                         type="password"
                         placeholder="Aquí tu password">
                 </div>
+
                 <div mb-5>{{-- Confirmación de Password --}}
                     <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
                         Repetir password:
@@ -72,6 +76,7 @@
                         type="password"
                         placeholder="Repite tu password">
                 </div>
+
                 {{-- Botón --}}
                 <input
                     class="mt-5  bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3

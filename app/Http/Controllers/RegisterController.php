@@ -17,9 +17,6 @@ class RegisterController extends Controller
         //dd($request->get('username'));
 
         //VALIDACION
-        /* $this->validate($request,[
-            'name'=>'required'
-        ]); */
         $request->validate([
             'name' => 'required|min:5'
         ]);
