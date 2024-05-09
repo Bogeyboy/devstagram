@@ -23,6 +23,11 @@
                         type="text"
                         placeholder="Aquí tu nombre">
                 </div>
+                @error('name')
+                    <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                        {{ $message }}
+                    </p>
+                @enderror
                 <div mb-5>{{-- Nombre de usuario --}}
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
                         Username:
