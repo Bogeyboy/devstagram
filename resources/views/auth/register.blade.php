@@ -10,7 +10,7 @@
             <img src="{{ asset('img/registrar.jpg') }}" alt="Imagen de registro de usuarios">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="{{ route('register') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST" novalidate>
                 @csrf
                 <div mb-5>{{-- Nombre real --}}
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -18,9 +18,9 @@
                     </label>
                     <input 
                         class="border p-3 w-full rounded-lg
-                        @error('name')
-                            border-red-500
-                        @enderror"
+                            @error('name')
+                                border-red-500
+                            @enderror"
                         id="name"
                         name="name"
                         type="text"
@@ -39,11 +39,19 @@
                         Username:
                     </label>
                     <input 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                            @error('username')
+                                border-red-500
+                            @enderror"
                         id="username"
                         name="username"
                         type="text"
                         placeholder="Aquí tu username">
+                    @error('username'){{-- Validación del nombre de usuario con mensaje --}}
+                        <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
                 <div mb-5>{{-- Email --}}
@@ -51,11 +59,19 @@
                         Email:
                     </label>
                     <input 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                            @error('email')
+                                border-red-500
+                            @enderror"
                         id="email"
                         name="email"
                         type="email"
                         placeholder="Aquí tu email">
+                    @error('email'){{-- Validación del email con mensaje --}}
+                        <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
 
                 <div mb-5>{{-- Password --}}
@@ -63,11 +79,19 @@
                         Password:
                     </label>
                     <input 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                            @error('email')
+                                border-red-500
+                        @enderror"
                         id="password"
                         name="password"
                         type="password"
                         placeholder="Aquí tu password">
+                        @error('password'){{-- Validación del password con mensaje --}}
+                            <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                                {{ $message }}
+                            </p>
+                        @enderror
                 </div>
 
                 <div mb-5>{{-- Confirmación de Password --}}
