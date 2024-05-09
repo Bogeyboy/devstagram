@@ -17,12 +17,17 @@
                         Nombre:
                     </label>
                     <input 
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg
+                        @error('name')
+                            border-red-500
+                        @enderror"
                         id="name"
                         name="name"
                         type="text"
-                        placeholder="Aquí tu nombre">
-                    @error('name'){{-- Validación del nombre --}}
+                        placeholder="Aquí tu nombre"
+                        value="{{ old('name') }}"
+                        >
+                    @error('name'){{-- Validación del nombre con mensaje --}}
                         <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}
                         </p>
