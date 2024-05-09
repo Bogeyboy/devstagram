@@ -36,6 +36,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
         //REDIRECCIONAMOS AL USUARIO
-
+        return redirect()->route('posts.index');
     }
 }
