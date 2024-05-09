@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -28,7 +29,7 @@ class RegisterController extends Controller
 
         User::create([
             'name' => $request->name,
-            'username' => $request->username,
+            'username' => Str::lower($request->username), 
             'email' => $request->email,
             /* 'password' => $request->password, */
             'password' => Hash::make($request->password),
