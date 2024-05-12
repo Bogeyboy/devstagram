@@ -8,8 +8,8 @@
         @vite('resources/js/app.js'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO JS A COMPILAR --}}
     </head>
     <body class="bg-gray-200">
-        @include('layouts.header')
-        @include('layouts.main')
-        @include('layouts.footer')
+        @include('layouts.header'){{-- Navegación superior--}}
+        @include('layouts.main'){{-- Parte del contenido de la página --}}
+        @include('layouts.footer'){{-- Parte inferior de la página --}}
     </body>
 </html>
