@@ -18,4 +18,5 @@ Route::post('/login', [LoginController::class, 'store']);//NO SE LE PONE NOMBRE 
 Route::post('/logout', [LogoutController::class,'store'])->name('logout');
 
 
-Route::get('/muro',[PostController::class,'index'])->middleware('auth')->name('posts.index');
+/* Route::get('/muro',[PostController::class,'index'])->middleware('auth')->name('posts.index'); */
+Route::get('/{user:username}', [PostController::class, 'index'])->middleware('auth')->name('posts.index');
