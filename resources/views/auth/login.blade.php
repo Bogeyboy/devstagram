@@ -49,7 +49,7 @@
                         class="border p-3 w-full rounded-lg
                             @error('email')
                                 border-red-500
-                        @enderror"
+                            @enderror"
                         id="password"
                         name="password"
                         type="password"
@@ -59,6 +59,10 @@
                                 {{ $message }}
                             </p>
                         @enderror
+                </div>
+
+                <div class="mb-5">
+                    <input type="checkbox" name="remember" id=""> Mantener sesión iniciada.
                 </div>
 
                 {{-- Botón --}}
