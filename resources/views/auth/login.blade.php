@@ -62,7 +62,9 @@
                 </div>
 
                 <div class="mb-5">
-                    <input type="checkbox" name="remember" id=""> Mantener sesión iniciada.
+                    <label class="text-gray-500 text-sm">
+                        <input type="checkbox" name="remember" id=""> Mantener sesión iniciada.
+                    </label>
                 </div>
 
                 {{-- Botón --}}
