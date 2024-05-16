@@ -12,9 +12,19 @@
                     <img src="{{ asset('img/usuario.svg') }}" alt="Imagen del usuario"/>
                 </p>
             </div>
-            <div class="md:w-8/12 lg:w-6/12 px-5">
-                <p class="text-gray-700 text-2xl">
-                    {{ auth()->user()->username }}
+            <div class="md:w-8/12 lg:w-6/12 px-5 md:flex md:flex-col md:justify-center">
+                {{-- {{dd($user)}} --}}
+                <p class="text-gray-700 text-2xl">{{-- Nombre de usuario --}}
+                    {{ $user->username }}
+                </p>
+                <p class="text-gray-800 text-sm mb-3 font-bold">{{-- Seguidores --}}
+                    0<span class="font-normal"> Seguidores</span>
+                </p>
+                <p class="text-gray-800 text-sm mb-3 font-bold">{{-- Seguidos --}}
+                    0<span class="font-normal"> Siguiendo</span>
+                </p>
+                <p class="text-gray-800 text-sm mb-3 font-bold">{{-- Posts --}}
+                    0<span class="font-normal"> Posts</span>
                 </p>
             </div>
         </div>
