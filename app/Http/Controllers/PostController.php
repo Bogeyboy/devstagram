@@ -15,9 +15,6 @@ class PostController extends Controller
     } */
     public static function middleware() :array
     {
-        /* return [
-            new middleware(middleware:'auth:sanctum',except:['index','show']),
-        ]; */
         return [
             'auth',
         ];
@@ -29,5 +26,10 @@ class PostController extends Controller
         return view('dashboard',[
             'user' => $user,
         ]);
+    }
+
+    public function create()
+    {
+        dd('Creando un post......');
     }
 }
