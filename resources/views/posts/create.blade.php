@@ -7,9 +7,13 @@
 @section('contenido')
     <div class="md:flex md:items-center">
         <div class="md:w-1/2 px-10">
-            Imagen aquí
+            <form id="dropzone" {{-- action="/imagenes" --}}
+                class="dropzone border-dashed border-10 w-full h-96 rounded flex flex-col justify-center items-center shadow-xl">
+
+            </form>
         </div>
-        <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
+
+        <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">{{-- Div contenedor de la publicación --}}
             <form action="{{ route('register') }}" method="POST" novalidate>
                 @csrf
                 <div mb-5>{{-- Título del post --}}
