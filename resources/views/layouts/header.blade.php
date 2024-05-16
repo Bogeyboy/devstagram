@@ -9,7 +9,7 @@
             <p>No autenticado</p>
         @endif --}}
         
-        @auth()
+        @auth(){{-- En este bloque se comprueba si el usuario está autenticado --}}
             <nav class="flex gap-2 items-center">
                 <a class="font-bold {{-- uppercase --}} text-gray-600 text-sm" href="#">
                     Hola: <span class="font-normal">
