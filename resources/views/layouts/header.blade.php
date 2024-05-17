@@ -3,11 +3,6 @@
         <h1 class="text-3xl font-black">
             DevStagram
         </h1>
-        {{-- @if (auth()->user())
-            <p>Autenticado</p>
-        @else
-            <p>No autenticado</p>
-        @endif --}}
         
         @auth(){{-- En este bloque se comprueba si el usuario está autenticado --}}
             <nav class="flex gap-2 items-center"> {{-- Barra de navegación superio --}}
