@@ -15,6 +15,7 @@
                 class="dropzone border-dashed border-10 w-full h-96 rounded flex flex-col justify-center items-center shadow-xl"
                 method="POST"
                 enctype="multipart/form-data">
+            @csrf
             </form>
         </div>
 
