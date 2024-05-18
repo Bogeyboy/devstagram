@@ -13,7 +13,7 @@ const dropzone = new Dropzone('#dropzone',{
     uploadMultiple: false,
 });
 
-dropzone.on('sending', function(file,xhr,formData){
+/* dropzone.on('sending', function(file,xhr,formData){
     console.log(formData);
 });
 
@@ -27,4 +27,4 @@ dropzone.on('error', function(file,message){
 
 dropzone.on('removedfile', function(){
     console.log('Archivo eliminado');
-});
+}); */
