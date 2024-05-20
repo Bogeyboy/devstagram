@@ -20,7 +20,7 @@
         </div>
 
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">{{-- Div contenedor de la publicación --}}
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form action="{{ route('posts.store') }}" method="POST" novalidate>
                 @csrf
                 <div mb-5>{{-- Título del post --}}
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -55,9 +55,9 @@
                             @enderror"
                         id="descripcion"
                         name="descripcion"
-                        placeholder="Descripción de la publicación">{{ old('titulo') }}</textarea>
+                        placeholder="Descripción de la publicación">{{ old('descripcion') }}</textarea>
                     
-                    @error('titulo'){{-- Validación del contenido con mensaje --}}
+                    @error('descripcion'){{-- Validación del contenido con mensaje --}}
                         <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
                             {{ $message }}
                         </p>
