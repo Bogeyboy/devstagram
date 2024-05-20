@@ -67,6 +67,7 @@
                     <input
                         name="imagen"
                         type="hidden"
+                        value="{{ old('imagen') }}"
                     />
                     @error('imagen'){{-- Validación de la ruta de la imágen --}}
                         <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
