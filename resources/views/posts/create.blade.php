@@ -63,6 +63,17 @@
                         </p>
                     @enderror
                 </div>
+                <div class="mb-5">{{-- Aquí se cargará la ruta de la imágen de forma oculta --}}
+                    <input
+                        name="imagen"
+                        type="hidden"
+                    />
+                    @error('imagen'){{-- Validación de la ruta de la imágen --}}
+                        <p class="bg-red-600 text-white my-2 rounded-lg text-sm p-2 text-center">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
                 
                 {{-- Botón --}}
                 <input

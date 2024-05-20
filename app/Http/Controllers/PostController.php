@@ -38,8 +38,7 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required|max:255',
             'descripcion' => 'required',
-            /* 'email' => 'required|unique:users|email|max:80',
-            'password' => 'required|confirmed|min:6' */
+            'imagen' => 'required',
         ]);
     }
 }
