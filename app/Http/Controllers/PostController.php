@@ -50,14 +50,22 @@ class PostController extends Controller
             'user_id'=> auth()->user()->id
         ]); */
 
-        /* Otra forma de insertar registros */
+        /* Otra forma de insertar registros 
         $post = new Post;
         $post->titulo = $request->titulo;
         $post->descripcion = $request->descripcion;
         $post->imagen = $request->imagen;
         $post->user_id = auth()->user()->id;
 
-        $post->save();
+        $post->save();*/
+
+        //Tercera forma de crear registros usando las relaciones entre las dos tablas
+        $request->user()->posts()->create([ //se pone posts() por que con los paréntesis se accede a la funcionlidad del método
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $request->imagen,
+            /* 'user_id' => auth()->user()->id */
+        ]);
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
