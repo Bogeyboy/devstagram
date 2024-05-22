@@ -21,4 +21,11 @@ class Post extends Model
         'imagen',
         'user_id'
     ];
+
+    public function user()//Relación inversa N:1 con posts
+    {
+        /* return $this->belongsTo(User::class); */
+        return $this->belongsTo(User::class)->select(['name','username']); //El select se usa para elegir los campos a mostrar en la consulta
+                                                                        //si no se coloca traerá todos los campos de la tabla elegida
+    }
 }
