@@ -24,7 +24,7 @@
                     0<span class="font-normal"> Siguiendo</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">{{-- Posts --}}
-                    {{ $posts->count() }}
+                    {{ $user->posts->count() }}
                     <span class="font-normal"> Posts</span>
                 </p>
             </div>
@@ -33,9 +33,13 @@
     <section class="container mx-auto mt-10">
         <h2 class="text-4xl text-center font-black my-10">Publicaciones</h2>
 
+        {{-- {{dd($user->posts)}} --}}
+
         @if ($posts->count()>0)
+        {{-- @if ($user->posts->count()>0)NO FUNCIONA PARA PAGINAR --}}
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl::grid-cols-4 gap-6">
                 @foreach ($posts as $post)
+                {{-- @foreach ($user->posts as $post)NO FUNCIONA PARA PAGINAR --}}
                     <div>
                         <a href="">
                             <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
@@ -45,6 +49,7 @@
             </div>
             <div class="my-10">
                 {{ $posts->links() }}
+                {{-- {{ $user->posts->links() }} NO FUNCIONA PARA PAGINAR--}}
             </div>
         @else
             <div class="text-gray-600 uppercase text-sm text-center font-bold">No hay publicaciones todavía</div>
