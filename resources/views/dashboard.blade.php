@@ -43,6 +43,9 @@
                     </div>
                 @endforeach
             </div>
+            <div>
+                {{ $posts->links('pagination::bootstrap-4') }}
+            </div>
         @else
             <div class="text-gray-600 uppercase text-sm text-center font-bold">No hay publicaciones todavía</div>
         @endif
