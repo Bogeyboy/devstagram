@@ -41,7 +41,7 @@
                 @foreach ($posts as $post)
                 {{-- @foreach ($user->posts as $post)NO FUNCIONA PARA PAGINAR --}}
                     <div>
-                        <a href="{{ route('posts.show',$post) }}">
+                        <a href="{{ route('posts.show',['post'=>$post,'user'=>$user]) }}">
                             <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
                         </a>
                     </div>
