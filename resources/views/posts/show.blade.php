@@ -24,6 +24,25 @@
                     {{ $post->descripcion }}
                 </p>
             </div>
+            @auth
+                @if ($post->user_id === auth()->user()->id){{-- Comprobamos si el usuario es el propietario del post a eliminar --}}
+                    <form action="">
+                        @csrf
+                        <input
+                            type="submit"
+                            value="Eiminar publicación"
+                            class="bg-red-500
+                                    hover:bg-red-600
+                                    p-2
+                                    rounded
+                                    text-white
+                                    font-bold
+                                    mt-4
+                                    cursor-pointer"
+                            />
+                    </form>
+                @endif
+            @endauth
         </div>
 
         <div class="md:w-1/2 p-5">{{-- Div para los comentarios del post --}}

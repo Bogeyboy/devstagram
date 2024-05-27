@@ -25,10 +25,8 @@ Route::post('/logout', [LogoutController::class,'store'])->name('logout');
 Route::get('/{user:username}', [PostController::class, 'index'])->middleware('auth')->name('posts.index');
 Route::get('/posts/create',[PostController::class,'create'])->middleware('auth')->name('posts.create');
 Route::post('posts/',[PostController::class,'store'])->name('posts.store');
-/* Route::get('/{user:username}/posts/{post:titulo}', [PostController::class, 'show'])->name('posts.show');
-
-Route::post('/{user:username}/posts/{post:titulo}', [ComentarioController::class, 'store'])->name('comentarios.store'); */
 Route::get('/{user:username}/posts/{post:id}', [PostController::class, 'show'])->name('posts.show');
+Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::post('/{user:username}/posts/{post:id}', [ComentarioController::class, 'store'])->name('comentarios.store');
 

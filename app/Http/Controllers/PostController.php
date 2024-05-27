@@ -83,4 +83,9 @@ class PostController extends Controller /* implements HasMiddleware */
             'user' => $user
         ]);
     }
+
+    public function destroy(Post $post)
+    {
+        dd('Eliminando post seleccionado ',$post->id);
+    }
 }
