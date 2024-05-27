@@ -26,7 +26,8 @@
             </div>
             @auth
                 @if ($post->user_id === auth()->user()->id){{-- Comprobamos si el usuario es el propietario del post a eliminar --}}
-                    <form action="">
+                    <form method="POST"  action="{{ route('posts.destroy',$post) }}">
+                        @method('DELETE')
                         @csrf
                         <input
                             type="submit"
