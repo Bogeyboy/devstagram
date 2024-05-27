@@ -69,6 +69,22 @@
                             value="Comentar">
                     </form>
                 @endauth
+                <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
+                    @if ($post->comentarios->count())
+                        @foreach ( $post->comentarios as $comentario)
+                            <div class="p-5 borde-gray-300 border-p">
+                                
+                                <a href="{{ route('posts.index',$comentario->user) }}" class="font-bold">
+                                    {{$comentario->user->username}}
+                                </a>
+                                <p>{{ $comentario->comentario }}</p>
+                                <p class="text-sm text-gray-500">{{ $comentario->created_at->diffForHumans() }}</p>
+                            </div>
+                        @endforeach
+                    @else
+                        <p class="p-10 text-center">Todavía no hay comentarios</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
