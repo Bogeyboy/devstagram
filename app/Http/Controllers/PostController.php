@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+//use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller /* implements HasMiddleware */
 {
@@ -86,6 +89,9 @@ class PostController extends Controller /* implements HasMiddleware */
 
     public function destroy(Post $post)
     {
-        dd('Eliminando post seleccionado ',$post->id);
+        Gate::allows('delete',$post);
+
+        $post->delete();
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
