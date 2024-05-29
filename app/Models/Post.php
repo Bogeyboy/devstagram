@@ -43,5 +43,6 @@ class Post extends Model
     public function checkLike(User $user)
     {
         return $this->likes->contains('user_id',$user->id);
+        /* return $this->likes->contains('user_id', auth()->user()->id); */
     }
 }
