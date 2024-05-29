@@ -43,12 +43,16 @@
                             </div>
                         </form>
                     @endif
-                    
                 @endauth
-                <p>0 likes</p>
+                <p class="font-bold">{{-- Conteo de likes de la publicación --}}
+                    {{ $post->likes->count() }} 
+                    <span class="font-normal">
+                         likes
+                    </span>
+                </p>
             </div>
 
-            <div>
+            <div>{{-- Datos de creación del post --}}
                 <p class="font-bold">{{ $post->user->username }}</p>
                 <p class="text-sm-text-gray-500">
                     {{ $post->created_at->diffForHumans() }}
@@ -86,12 +90,13 @@
                         Agrega un nuevo comentario
                     </p>
 
-                    @if (session('mensaje'))
+                    @if (session('mensaje')){{-- Mensaje de éxito al realizar comentario --}}
                         <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
                             {{session('mensaje')}}
                         </div>
                     @endif
 
+                    {{-- Formulario para el envío de comentarios --}}
                     <form action="{{ route('comentarios.store', ['post'=>$post,'user'=>$user] ) }}" method="POST">
                         @csrf
                         <div mb-5>{{-- Contenido del post --}}

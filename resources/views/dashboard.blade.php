@@ -44,6 +44,12 @@
                         <a href="{{ route('posts.show',['post'=>$post,'user'=>$user]) }}">
                             <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
                         </a>
+                        <p class="font-bold">{{-- Conteo de likes de la publicación --}}
+                            {{ $post->likes->count() }} 
+                            <span class="font-normal">
+                                likes
+                            </span>
+                        </p>
                     </div>
                 @endforeach
             </div>
