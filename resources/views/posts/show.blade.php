@@ -47,7 +47,7 @@
                 <p class="font-bold">{{-- Conteo de likes de la publicación --}}
                     {{ $post->likes->count() }} 
                     <span class="font-normal">
-                         likes
+                        likes
                     </span>
                 </p>
             </div>
@@ -130,13 +130,19 @@
                 <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
                     @if ($post->comentarios->count())
                         @foreach ( $post->comentarios as $comentario)
-                            <div class="p-5 borde-gray-300 border-p">
+                            <div class="p-5 borde-gray-300 border-b">{{-- Contiene el comentario del usuario --}}
+                                <div class="flex items-center">{{-- Imagen del usuario que ha hecho el comentario --}}
+                                    <img class="rounded-full h-8 w-8 mr-1 object-cover" 
+                                        src="{{ $user->imagen ? asset('perfiles').'/'.$user->imagen : asset('img/usuario.svg')}}"
+                                        alt="Avatar de {{ $post->user->username }}"/>
+
+                                    <a href="{{ route('posts.index',$comentario->user) }}" class="font-bold">
+                                        {{$comentario->user->username}}
+                                    </a>
+                                </div>
+                                    <p>{{ $comentario->comentario }}</p>
+                                    <p class="text-sm text-gray-500">{{ $comentario->created_at->diffForHumans() }}</p>
                                 
-                                <a href="{{ route('posts.index',$comentario->user) }}" class="font-bold">
-                                    {{$comentario->user->username}}
-                                </a>
-                                <p>{{ $comentario->comentario }}</p>
-                                <p class="text-sm text-gray-500">{{ $comentario->created_at->diffForHumans() }}</p>
                             </div>
                         @endforeach
                     @else
