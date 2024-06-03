@@ -26,13 +26,14 @@ const dropzone = new Dropzone('#dropzone',{
             }
         }
     });
+
+    dropzone.on('success', function(file,response){
+    /* console.log(response.imagen); */
+        document.querySelector('[name="imagen"]').value = response.imagen;
+    });
+
+    dropzone.on('removedfile', function(){
+        document.querySelector('[name="imagen"]').value = '';
+    });
 }
 
-dropzone.on('success', function(file,response){
-    /* console.log(response.imagen); */
-    document.querySelector('[name="imagen"]').value = response.imagen;
-});
-
-dropzone.on('removedfile', function(){
-    document.querySelector('[name="imagen"]').value = '';
-});
