@@ -31,7 +31,7 @@ Route::post('/editar-perfil', [PerfilController::class, 'store'])->middleware('a
 
 //Rutas para los post
 /* Route::get('/muro',[PostController::class,'index'])->middleware('auth')->name('posts.index'); */
-Route::get('/{user:username}', [PostController::class, 'index'])->middleware('auth')->name('posts.index');
+Route::get('/{user:username}', [PostController::class, 'index'])/* ->middleware('auth') */->name('posts.index');
 Route::get('/posts/create',[PostController::class,'create'])->middleware('auth')->name('posts.create');
 Route::post('posts/',[PostController::class,'store'])->name('posts.store');
 Route::get('/{user:username}/posts/{post:id}', [PostController::class, 'show'])->name('posts.show');

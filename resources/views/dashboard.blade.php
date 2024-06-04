@@ -45,6 +45,27 @@
                     {{ $user->posts->count() }}
                     <span class="font-normal"> Posts</span>
                 </p>
+                @auth {{-- Si el usuario está autenticado podrá ver los botones de seguir y dejar de seguir --}}
+                    <form {{-- Formulario para el seguimiento de usuarios --}}
+                        action=""
+                        method="POST">
+                        @csrf
+                        <input {{-- Botón de seguir usuario --}}
+                            type="submit" 
+                            class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
+                            value="Seguir">
+                    </form>
+                    <form {{-- Formulario para dejar de seguir a usuarios --}}
+                        action=""
+                        method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input {{-- Botón para dejar de seguir a usuario --}}
+                            type="submit" 
+                            class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
+                            value="Dejar de seguir">
+                    </form>
+                @endauth
             </div>
         </div>
     </div>
