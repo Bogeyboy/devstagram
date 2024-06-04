@@ -47,25 +47,28 @@
                 </p>
                 @auth {{-- Si el usuario está autenticado podrá ver los botones de seguir y dejar de seguir --}}
                     @if ($user->id !== auth()->user()->id)
-                        <form {{-- Formulario para el seguimiento de usuarios --}}
-                            action="{{ route('users.follow',$user) }}" {{-- $user es el perfil que se está visitando --}}
-                            method="POST">
-                            @csrf
-                            <input {{-- Botón de seguir usuario --}}
-                                type="submit" 
-                                class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
-                                value="Seguir">
-                        </form>
-                        <form {{-- Formulario para dejar de seguir a usuarios --}}
-                            action="{{ route('users.unfollow',$user) }}"
-                            method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input {{-- Botón para dejar de seguir a usuario --}}
-                                type="submit" 
-                                class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
-                                value="Dejar de seguir">
-                        </form>
+                        @if (!$user->siguiendo(auth()->user()))
+                            <form {{-- Formulario para el seguimiento de usuarios --}}
+                                action="{{ route('users.follow',$user) }}" {{-- $user es el perfil que se está visitando --}}
+                                method="POST">
+                                @csrf
+                                <input {{-- Botón de seguir usuario --}}
+                                    type="submit" 
+                                    class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
+                                    value="Seguir">
+                            </form>
+                        @else
+                            <form {{-- Formulario para dejar de seguir a usuarios --}}
+                                action="{{ route('users.unfollow',$user) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input {{-- Botón para dejar de seguir a usuario --}}
+                                    type="submit" 
+                                    class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs cursor-pointer"
+                                    value="Dejar de seguir">
+                            </form>
+                        @endif
                     @endif
                 @endauth
             </div>
