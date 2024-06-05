@@ -14,6 +14,8 @@ class HomeController extends Controller
     } */
     public function __invoke()
     {
+        //Obtenemos a quienes seguimos
+        dd(auth()->user()->followings->pluck('id')->toArray());//pluck() únicamente trae de la BD ciertos campos
         return view('home');
     }
 }
