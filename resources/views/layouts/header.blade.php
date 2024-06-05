@@ -1,8 +1,8 @@
 <header class="p-5 border-b bg-white shadow">
     <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-black">
+        <a class="text-3xl font-black" href="{{ route('home') }}">
             DevStagram
-        </h1>
+        </a>
         
         @auth(){{-- En este bloque se comprueba si el usuario está autenticado --}}
             <nav class="flex gap-2 items-center"> {{-- Barra de navegación superio --}}
