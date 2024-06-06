@@ -10,7 +10,8 @@
         "intervention/image-laravel": "^1.2",
         "laravel-lang/native-country-names": "^1.4",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "livewire/livewire": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
