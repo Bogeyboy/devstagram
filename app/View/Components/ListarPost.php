@@ -8,12 +8,11 @@ use Illuminate\Contracts\View\View;
 
 class ListarPost extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $posts;
+
+    public function __construct($posts)
     {
-        //
+        $this->posts=$posts;
     }
 
     /**

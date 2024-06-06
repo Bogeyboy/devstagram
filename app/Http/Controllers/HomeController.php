@@ -9,11 +9,6 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 
 class HomeController extends Controller
 {
-    /* public function __construct()
-    {
-        $this->middleware('auth');
-    } */
-
     public function __invoke()
     {
         //Obtenemos a quienes seguimos

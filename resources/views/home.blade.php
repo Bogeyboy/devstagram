@@ -6,8 +6,6 @@
 
 @section('contenido')
 
-    <x-ListarPost />
-
-    
+    <x-ListarPost :posts="$posts"/>
 
 @endsection
