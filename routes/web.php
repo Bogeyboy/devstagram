@@ -13,7 +13,7 @@ use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ComentarioController;
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', HomeController::class)->middleware('auth')->name('home');
 
 
 Route::get('/register', [RegisterController::class,'index'])->name('register');

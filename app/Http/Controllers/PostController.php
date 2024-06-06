@@ -29,7 +29,7 @@ class PostController extends Controller /* implements HasMiddleware */
     {
         //dd($user->id);
         /* $posts = Post::where('user_id', $user->id)->get();//Se obtienen todos los resultados */
-        $posts = Post::where('user_id', $user->id)->paginate(20); //Se empieza a paginar cuando sobrepasa la cantidad de 20
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(20); //Se empieza a paginar cuando sobrepasa la cantidad de 20
         return view('dashboard',[
             'user' => $user,
             'posts' => $posts

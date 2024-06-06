@@ -82,9 +82,10 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 xl::grid-cols-4 gap-6">
                 @foreach ($posts as $post){{-- Lo usamos para paginar --}}
                     <div>
-                        <a href="{{ route('posts.show',['post'=>$post,'user'=>$user]) }}">
+                        <a href="{{ route('posts.show',['post'=>$post,'user'=>$post->user]) }}">
                             <p class="font-bold mb-3">{{ $post->titulo }}</p>{{-- Mostramos el título del post --}}
                             <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
+                            <p class="font-bold mt-3">Creado el: {{ $post->created_at->locale('es')->translatedFormat(('d M Y')) }}</p>
                         </a>
                         <p class="font-bold">{{-- Conteo de likes de la publicación --}}
                             {{ $post->likes->count() }} 
