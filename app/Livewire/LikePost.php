@@ -10,6 +10,11 @@ class LikePost extends Component
 
     public $post; /* La información le viene desde la vista */
     
+    public function like()
+    {
+        return "Retornando desde la función like";
+    }
+    
     public function render()
     {
         return view('livewire.like-post');
