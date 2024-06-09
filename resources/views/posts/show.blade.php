@@ -15,7 +15,9 @@
                     {{-- <livewire:like-post>  --> Este lo usaremos para cuando queramos añadir alguna información adicional no común
                         Esto parece que va funcionando
                     </livewire:like-post> --}}
-                    <livewire:like-post />
+                    
+                    <livewire:like-post :post="$post" />
+
                     @if($post->checkLike(auth()->user())){{-- Usuario ya dio like a la publicación --}}
                         <form method="POST" action="{{ route('posts.likes.destroy',$post) }}">
                             @method('DELETE')
