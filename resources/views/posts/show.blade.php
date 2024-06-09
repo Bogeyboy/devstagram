@@ -44,12 +44,7 @@
                         </form>
                     @endif --}}
                 @endauth
-                <p class="font-bold">{{-- Conteo de likes de la publicación --}}
-                    {{ $post->likes->count() }} 
-                    <span class="font-normal">
-                        likes
-                    </span>
-                </p>
+                
             </div>
 
             <div>{{-- Datos de creación del post --}}

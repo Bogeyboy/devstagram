@@ -10,10 +10,12 @@ class LikePost extends Component
 
     public $post; /* La información le viene desde la vista */
     public $isLiked; /* Guardará un booleano que almacenará si se le ha dado like o no a la publicación */
+    public $likes;
     
     public function mount($post) /* Es como el constructor de PHP */
     {
         $this->isLiked = $post->checkLike(auth()->user());
+        $this->likes = $post->likes->count();
     }
     
     public function like()
@@ -22,9 +24,11 @@ class LikePost extends Component
         {
             $this->post
                 ->likes()
-                ->where('post_id', $this->post->id)
+                /* ->where('post_id', $this->post->id) */
+                ->where('user_id', auth()->user()->id)
                 ->delete();
             $this->isLiked = false;
+            $this->likes--;
 
             return back();
         }
@@ -35,6 +39,7 @@ class LikePost extends Component
                     'user_id' => auth()->user()->id
                 ]);
             $this->isLiked = true;
+            $this->likes++;
         }
     }
     
