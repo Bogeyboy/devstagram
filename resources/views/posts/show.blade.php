@@ -11,6 +11,11 @@
             
             <div class="p-3 flex items-center gap-4">
                 @auth
+                    {{-- @livewire('like-post') --}}
+                    {{-- <livewire:like-post>  --> Este lo usaremos para cuando queramos añadir alguna información adicional no común
+                        Esto parece que va funcionando
+                    </livewire:like-post> --}}
+                    <livewire:like-post />
                     @if($post->checkLike(auth()->user())){{-- Usuario ya dio like a la publicación --}}
                         <form method="POST" action="{{ route('posts.likes.destroy',$post) }}">
                             @method('DELETE')
@@ -83,19 +88,18 @@
             @endauth
         </div>
 
-        <div class="md:w-1/2 p-5">{{-- Div para los comentarios del post --}}
+        {{-- Div para los comentarios del post --}}
+        <div class="md:w-1/2 p-5">
             <div class="shadow bg-white p-5 mb-5">
                 @auth {{-- Si está autenticado el usuario podrá realizar comentarios del post --}}
                     <p class="text-xl font-bold text-center mb-4">
                         Agrega un nuevo comentario
                     </p>
-
                     @if (session('mensaje')){{-- Mensaje de éxito al realizar comentario --}}
                         <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
                             {{session('mensaje')}}
                         </div>
                     @endif
-
                     {{-- Formulario para el envío de comentarios --}}
                     <form action="{{ route('comentarios.store', ['post'=>$post,'user'=>$user] ) }}" method="POST">
                         @csrf
@@ -127,6 +131,7 @@
                             value="Comentar">
                     </form>
                 @endauth
+                {{-- Comentarios ya existentes del post --}}
                 <div class="bg-white shadow mb-5 max-h-96 overflow-y-scroll mt-10">
                     @if ($post->comentarios->count())
                         @foreach ( $post->comentarios as $comentario)

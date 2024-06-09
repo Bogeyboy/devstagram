@@ -7,10 +7,14 @@
         <title>Devstagram - @yield('titulo')</title>
         @vite('resources/css/app.css'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO CSS A COMPILAR --}}
         @vite('resources/js/app.js'){{-- ESTAMOS INDICANDO LA UBICACIÓN DEL ARCHIVO JS A COMPILAR --}}
+
+        @livewireStyles{{-- Agregamos los estilos de livewire --}}
     </head>
     <body class="bg-gray-200">
         @include('layouts.header'){{-- Navegación superior--}}
         @include('layouts.main'){{-- Parte del contenido de la página --}}
         @include('layouts.footer'){{-- Parte inferior de la página --}}
+
+        @livewireScripts
     </body>
 </html>
